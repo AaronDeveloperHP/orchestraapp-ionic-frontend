@@ -35,7 +35,7 @@ export class EmployeeStatusPage implements OnInit {
 
   statusReportViewer(){
     // this.RequestsService.getReport();
-    window.open('http://localhost:8000/api/status/reporte');
+    window.open('https://orchestraapp-laravel-ionic.herokuapp.com/api/status/reporte');
   }
 
   getAllStatuses(){

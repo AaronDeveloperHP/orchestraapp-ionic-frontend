@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import { Storage } from '@ionic/storage';
 
-const apiUrl = 'http://localhost:8000/api/auth';
+const apiUrl = 'https://orchestraapp-laravel-ionic.herokuapp.com/api/auth';
 
 
 @Injectable({

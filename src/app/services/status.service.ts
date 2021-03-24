@@ -10,7 +10,7 @@ const httpOptions = {
     'Content-Type': 'application/x-www-form-urlencoded'
   })
 };
-const apiUrl = 'http://localhost:8000/api/status';
+const apiUrl = 'https://orchestraapp-laravel-ionic.herokuapp.com/api/status';
 
 @Injectable({
   providedIn: 'root'

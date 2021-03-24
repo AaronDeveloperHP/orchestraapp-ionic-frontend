@@ -17,7 +17,7 @@ const httpOptions = {
     'Content-Type': 'application/x-www-form-urlencoded'
   })
 };
-const apiUrl = 'http://localhost:8000/api/auth';
+const apiUrl = 'https://orchestraapp-laravel-ionic.herokuapp.com/api/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +30,7 @@ export class AuthService {
    token:any;
      authenticationState = new BehaviorSubject(null);
   userId = new BehaviorSubject(0);
-  AUTH_SERVER_ADDRESS:  string  =  'http://localhost:8000';
+
 
   constructor(private http: HttpClient, private  httpClient:  HttpClient, private plt: Platform, private  storage:  Storage , private UserService:UserService) { 
     this.token=this.getTokken();

@@ -44,7 +44,7 @@ export class EmployeeRequestsPage{
 
   requestReportViewer(){
     // this.RequestsService.getReport();
-    window.open('http://localhost:8000/api/requests/reporte');
+    window.open('https://orchestraapp-laravel-ionic.herokuapp.com/api/requests/reporte');
   }
 
   isAdmin(){

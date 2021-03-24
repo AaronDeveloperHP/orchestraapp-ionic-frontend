@@ -25,6 +25,6 @@ export class Tab3Page {
 
   requestReportViewer(){
     // this.RequestsService.getReport();
-    window.open('http://localhost:8000/api/requests/reporte');
+    window.open('https://ayudadeproyecto.000webhostapp.com');
   }
 }
