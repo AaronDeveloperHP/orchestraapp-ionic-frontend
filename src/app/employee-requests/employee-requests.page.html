@@ -12,7 +12,7 @@
 <ion-content>
   <iframe hidden=true src="https://orchestraapp-laravel-ionic.herokuapp.com/api/requests/compilar"></iframe>
   <div class = "container">
-    <mat-card color = "accent" *ngFor ="let r of req" class="example-card">
+   <!--  <mat-card color = "accent" *ngFor ="let r of req" class="example-card">
       <mat-card-header>
         
       </mat-card-header>
@@ -34,7 +34,7 @@
         <ion-icon *ngIf = "admin && (r.revised == 'Sin revisar' || r.revised == 'Solicitud denegada')" id = "confirm-icon" (click)="confirmRequest(r.id)" color="success" name="checkmark-outline" slot="end" style="zoom:2.0;"></ion-icon>
         <ion-icon *ngIf = "admin && (r.revised == 'Sin revisar' || r.revised == 'Solicitud aceptada')" (click)="rejectRequest(r.id)" color="danger" name="close-outline" slot="end" style="zoom:2.0;"></ion-icon>
       </mat-card-actions>
-    </mat-card>
+    </mat-card> -->
 </div>
 </ion-content>
 

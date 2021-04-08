@@ -1,7 +1,8 @@
 {
   "name": "OrchestraFrontend",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "angular"
 }
