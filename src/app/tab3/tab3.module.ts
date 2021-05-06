@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab3Page } from './tab3.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
-
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { Tab3PageRoutingModule } from './tab3-routing.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -23,6 +23,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonToggleModule,
     MatToolbarModule,
     MatIconModule, 
+    MatSlideToggleModule,
   ],
   declarations: [Tab3Page]
 })

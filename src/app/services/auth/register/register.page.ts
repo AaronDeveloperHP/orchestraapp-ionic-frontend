@@ -14,11 +14,11 @@ import { User } from 'src/app/models/user';
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
 })
-export class RegisterPage implements OnInit {
+export class RegisterPage  {
 
   registForm: FormGroup;
   private role: number;
-
+otherTheme:boolean;
   constructor(public fb: FormBuilder, 
     private UserService: UserService,
     private DataService: DataService,
@@ -33,10 +33,9 @@ export class RegisterPage implements OnInit {
       });
      }
 
-  ngOnInit() {
-    
-  }
-
+     ionViewWillEnter(){
+      this.otherTheme=this.AuthService.otherTheme;
+    }
   
 
   onFormSubmit() {

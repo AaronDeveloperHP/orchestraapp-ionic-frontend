@@ -20,6 +20,7 @@ export class LoginPage implements OnInit {
   loginForm: FormGroup;
   usr: User[]
   user: User[]
+  otherTheme:boolean;
   constructor(public fb: FormBuilder, 
     private authService: AuthService, 
     private UserService: UserService, 
@@ -27,7 +28,9 @@ export class LoginPage implements OnInit {
     private router: Router) { 
       
     }
-
+    ionViewWillEnter(){
+      this.otherTheme=this.authService.otherTheme;
+    }
   ngOnInit() {
     this.loginForm = this.fb.group({
       email: [null, [Validators.required]],

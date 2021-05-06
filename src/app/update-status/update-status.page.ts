@@ -5,22 +5,24 @@ import { Status } from '../models/status';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { StatusService } from '../services/status.service';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-update-status',
   templateUrl: './update-status.page.html',
   styleUrls: ['./update-status.page.scss'],
 })
-export class UpdateStatusPage implements OnInit {
+export class UpdateStatusPage {
 
   sta: Status[];
 
   statusUpdateForm: FormGroup;
-  
+  otherTheme:boolean;
 
   constructor(public fb: FormBuilder, 
     private StatusService: StatusService,
-    private router: Router) {
+    private router: Router,
+    private AuthService: AuthService) {
     this.statusUpdateForm = this.fb.group({
       type: [''],
       startDate: [''],
@@ -28,8 +30,9 @@ export class UpdateStatusPage implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
+ ionViewWillEnter(){
+  this.otherTheme=this.AuthService.otherTheme;
+ }
 
   onFormSubmit() {
     if (!this.statusUpdateForm.valid) {

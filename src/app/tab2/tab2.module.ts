@@ -11,8 +11,9 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { Storage } from '@ionic/storage';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 @NgModule({
-  imports: [
+  imports: [MatDialogModule,
     IonicModule,
     CommonModule,
     ExploreContainerComponentModule,
@@ -21,6 +22,7 @@ import { Storage } from '@ionic/storage';
     MatButtonToggleModule,
     MatToolbarModule,
     MatIconModule, 
+  
   
   ],
   declarations: [Tab2Page]

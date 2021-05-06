@@ -23,7 +23,7 @@ export class EmployeeRequestsPage{
    
   admin :boolean;
   request: boolean;
-
+  otherTheme:boolean;
 
   constructor(private RequestsService: RequestsService, private AuthService: AuthService, private StatusService: StatusService, private router: Router, private storage:Storage) { }
   email=  this.AuthService.email;
@@ -40,6 +40,7 @@ export class EmployeeRequestsPage{
        this.admin=true;
        this.isAdmin();}
   });
+  this.otherTheme=this.AuthService.otherTheme;
   }
 
   requestReportViewer(){
@@ -50,8 +51,10 @@ export class EmployeeRequestsPage{
   isAdmin(){
     
     if(this.admin){
+      this.getAllStatus();
       this.getAllRequests();
     } else if(!this.admin) {
+      this.getAllStatus();
       this.getRequestsByEmail(this.email)
     }
   }
@@ -62,6 +65,7 @@ export class EmployeeRequestsPage{
     this.RequestsService.getRequests().subscribe( req => {
       this.req = req;
     });
+  
   }
 
   getRequestsByEmail(email: string){
@@ -111,10 +115,11 @@ export class EmployeeRequestsPage{
       }
       this.RequestsService.reviseRequest(id, req)
         .subscribe((res) => {
+          this.modifyStatus(id);
           this.router.navigateByUrl("/employee-requests");
         });
       
-      this.modifyStatus(id);
+     
     }
 
     modifyStatus(id: number){

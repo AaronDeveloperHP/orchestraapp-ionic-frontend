@@ -5,24 +5,24 @@ import { Requests } from '../models/requests';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RequestsService } from '../services/requests.service';
-
+import { AuthService } from '../services/auth/auth.service';
 @Component({
   selector: 'app-update-request',
   templateUrl: './update-request.page.html',
   styleUrls: ['./update-request.page.scss'],
 })
-export class UpdateRequestPage implements OnInit {
+export class UpdateRequestPage {
 
   req: Requests[];
   requestUpdateForm: FormGroup;
-  
+  otherTheme:boolean;
   constructor(public fb: FormBuilder, 
     private RequestsService: RequestsService,
-    private router: Router) {
+    private router: Router, private AuthService:AuthService) {
       
   }
 
-  ngOnInit() {
+  ionViewWillEnter() {
     this.getAllRequests();
     let id = this.RequestsService.getCurrentRequestId();
     this.requestUpdateForm = this.fb.group({
@@ -42,6 +42,7 @@ export class UpdateRequestPage implements OnInit {
         endDate: req.endDate
       });
     })
+    this.otherTheme=this.AuthService.otherTheme;
   }
 
   getAllRequests(){

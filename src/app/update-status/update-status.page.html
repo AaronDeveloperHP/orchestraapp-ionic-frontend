@@ -34,7 +34,7 @@
   </form>
 </ion-content>
  -->
-
+<div [class.alternative]="otherTheme">
 <ion-header>
   <mat-toolbar color="primary">
     <button (click)="return()" slot = "start" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
@@ -46,7 +46,7 @@
   </mat-toolbar>
 </ion-header>
 
-<ion-content>  
+<ion-content [color]="otherTheme==true ? 'light' : 'dark'">  
   <form [formGroup]="statusUpdateForm" (ngSubmit)="onFormSubmit()">
     <mat-form-field appearance="outline">
       <mat-label>Tipo</mat-label>
@@ -85,3 +85,4 @@
 
   </form>
 </ion-content>
+</div>

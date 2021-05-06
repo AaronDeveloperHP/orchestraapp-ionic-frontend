@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 import { UserService } from '../services/user.service';
+import { AuthService } from '../services/auth/auth.service';
 
 
 @Component({
@@ -13,12 +14,12 @@ import { UserService } from '../services/user.service';
   templateUrl: './update-data.page.html',
   styleUrls: ['./update-data.page.scss'],
 })
-export class UpdateDataPage implements OnInit {
+export class UpdateDataPage {
   dat: Data[];
   dataUpdateForm: FormGroup;
-
+otherTheme:boolean;
   constructor(public fb: FormBuilder, private DataService: DataService, 
-    private router: Router) { 
+    private router: Router,private AuthService:AuthService) { 
     this.dataUpdateForm = this.fb.group({
       DNI: [''], 
       name: [''], 
@@ -29,7 +30,7 @@ export class UpdateDataPage implements OnInit {
     });
   }
 
-  ngOnInit() {
+  ionViewWillEnter() {
     this.getAllData();
     let id = this.DataService.getCurrentDataId();
 
@@ -43,6 +44,7 @@ export class UpdateDataPage implements OnInit {
         userEmail: dat.userEmail
       });
     })
+    this.otherTheme=this.AuthService.otherTheme;
   }
 
   getAllData(){

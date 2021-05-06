@@ -1,3 +1,4 @@
+<div [class.alternative]="otherTheme">
 <ion-header>
   <mat-toolbar color="primary">
     <button (click)="return()" slot = "start" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
@@ -9,7 +10,7 @@
   </mat-toolbar>
 </ion-header>
 <body>  
-  <ion-content> 
+  <ion-content [color]="otherTheme==true ? 'light' : 'dark'"> 
     <div class="container">
       <form [formGroup]="requestCreateForm" (submit)="submit()">
         <mat-form-field appearance="outline">
@@ -44,7 +45,7 @@
 
         <mat-form-field class="form-field" appearance="outline">
           <mat-label>Fecha de finalización</mat-label>
-          <input matInput [matDatepicker]="picker2" formControlName = "endDate">
+          <input matInput [matDatepicker]="picker2" formControlName = "endDate" [min]="requestCreateForm.controls.startDate.value">
           <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
           <mat-datepicker #picker2></mat-datepicker>
           <mat-error *ngIf="requestCreateForm.controls.endDate.touched && requestCreateForm.controls.endDate.invalid">
@@ -57,5 +58,5 @@
     </div>
   </ion-content>
 </body>
-
+</div>
 

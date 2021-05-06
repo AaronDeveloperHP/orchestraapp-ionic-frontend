@@ -27,7 +27,10 @@ ionViewWillEnter(){
     console.log(val);
     if(val=="2"){
      this.admin=true;
-     this.isAdmin();}
+     this.isAdmin();}else{
+       this.admin=false;
+       this.isAdmin();
+     }
 });
 }
 
@@ -86,7 +89,7 @@ ionViewWillEnter(){
     if(this.admin){
       this.getAllData();
     } else if(!this.admin) {
-      const user = this.AuthService.getUser()
+      const user = this.AuthService.getUser();
       this.email = this.AuthService.email;
       this.getDataByEmail(this.email);
       this.getStatusByEmail(this.email);

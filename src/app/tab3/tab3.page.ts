@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { RequestsService } from '../services/requests.service';
+import { AuthService } from '../services/auth/auth.service';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -17,8 +18,16 @@ const apiUrl2 = 'http://localhost:8000/api/requests/reporte';
 })
 export class Tab3Page {
 
-  constructor(private http: HttpClient, private RequestsService: RequestsService) {}
+  constructor(private http: HttpClient, private RequestsService: RequestsService, private renderer:Renderer2, private authService:AuthService) {}
 
+  otherTheme:boolean;
+
+  changeTheme(){
+    this.authService.otherTheme= !this.authService.otherTheme;
+   this.otherTheme=this.authService.otherTheme;
+
+console.log(this.authService.otherTheme);
+  }
   requestReportCompile(){
     return this.http.get(apiUrl);
   }
@@ -27,4 +36,10 @@ export class Tab3Page {
     // this.RequestsService.getReport();
     window.open('https://ayudadeproyecto.000webhostapp.com');
   }
+/*   onToggleColorTheme(event){
+  console.log(event.detail.checked);
+  if(event.detail.checked){
+    this.renderer.addClass(document.body, 'dark-theme');
+  }
+  } */
 }

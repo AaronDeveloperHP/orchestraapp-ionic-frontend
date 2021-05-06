@@ -1,3 +1,4 @@
+<div [class.alternative]="otherTheme" >
 <ion-header>
   <mat-toolbar color="primary" class="head">
     <img src="../../assets/img/OrchestraLogo.png" alt="Orchestra Logo">
@@ -5,7 +6,7 @@
   </mat-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" [color]="otherTheme==true ? 'light' : 'dark'">
 
   <div class = "container">
     <button mat-raised-button *ngIf = "!logged" class = "menu-buttons4" color = "primary" (click) = "loginPage()" >Iniciar <br> sesión</button>
@@ -18,8 +19,10 @@
         <ion-button (click) = "confirmLogout()" type="button" color="tertiary" shape="tertiary" expand="block">OK</ion-button>
       </ion-card>
     </ion-item>
+    <button mat-button (click)="openDialog()">Open dialog</button>
     <!-- <ion-icon (click)="logout()" name="log-out-outline"></ion-icon> -->
   </div>
 
   <!-- <app-explore-container name="Tab 2 page"></app-explore-container> -->
 </ion-content>
+</div>

@@ -12,10 +12,7 @@
   --ion-background-color:#161313;
 }
 
-ion-tab-bar, ion-tab-button{
-  background-color: #161313;
-  border: #161313;
- }
+
 
 
 /* Core CSS required for Ionic components to work properly */
@@ -182,14 +179,14 @@ $mat-dark-theme-background: (
 
 // Theme Config
 
-body {
+/* body {
   --primary-color: #711cb3;
   --primary-lighter-color: #d4bbe8;
   --primary-darker-color: #54119a;
   --text-primary-color: #{$light-primary-text};
   --text-primary-lighter-color: #{$dark-primary-text};
   --text-primary-darker-color: #{$light-primary-text};
-}
+} */
 
 $mat-primary: (
   main: #711cb3,
@@ -204,14 +201,14 @@ $mat-primary: (
 );
 $theme-primary: mat-palette($mat-primary, main, lighter, darker);
 
-body {
+/* body {
   --accent-color: #797979;
   --accent-lighter-color: #d7d7d7;
   --accent-darker-color: #5c5c5c;
   --text-accent-color: #{$light-primary-text};
   --text-accent-lighter-color: #{$dark-primary-text};
   --text-accent-darker-color: #{$light-primary-text};
-}
+} */
 
 $mat-accent: (
   main: #797979,
@@ -225,7 +222,7 @@ $mat-accent: (
   )
 );
 $theme-accent: mat-palette($mat-accent, main, lighter, darker);
-
+/* 
 body {
   --warn-color: #d62525;
   --warn-lighter-color: #f3bebe;
@@ -233,7 +230,7 @@ body {
   --text-warn-color: #{$light-primary-text};
   --text-warn-lighter-color: #{$dark-primary-text};
   --text-warn-darker-color: #{$light-primary-text};
-}
+} */
 
 $mat-warn: (
   main: #d62525,
@@ -246,15 +243,33 @@ $mat-warn: (
     darker: $light-primary-text,
   )
 );
-$theme-warn: mat-palette($mat-warn, main, lighter, darker);;
+$theme-warn: mat-palette($mat-warn, main, lighter, darker);
 
 $theme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
-$altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
+
+$mat-primary-light: (
+  main: #428cff,
+  lighter: #d4bbe8,
+  darker: #54119a,
+  200: #711cb3, // For slide toggle,
+  contrast : (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  )
+);
+$theme-primary-light: mat-palette($mat-primary-light, main);
+$theme-accent-light:mat-palette($mat-accent, main, lighter, darker);
+$theme-warn-light: mat-palette($mat-warn, main, lighter, darker);
+
+$altTheme: mat-light-theme($theme-primary-light, $theme-accent-light, $theme-warn-light);
 
 // Theme Init
 @include angular-material-theme($theme);
 
-.theme-alternate {
+$theme-primary: mat-palette($mat-primary, main, lighter, darker);
+
+.alternative {
   @include angular-material-theme($altTheme);
 }
 

@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     MatButtonToggleModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatBadgeModule
   ],
   declarations: [Tab1Page]
 })

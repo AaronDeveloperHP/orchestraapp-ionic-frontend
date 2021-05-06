@@ -28,6 +28,7 @@ export class AuthService {
    logged: boolean;
    email:string;
    token:any;
+   otherTheme:boolean;
      authenticationState = new BehaviorSubject(null);
   userId = new BehaviorSubject(0);
 

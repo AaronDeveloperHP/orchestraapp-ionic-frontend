@@ -1,3 +1,4 @@
+<div [class.alternative]="otherTheme" >
 <ion-header>
   <mat-toolbar color="primary">
     <img src="../../assets/img/OrchestraLogo.png" alt="Photo of a Shiba Inu">
@@ -5,14 +6,15 @@
   </mat-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" [color]="otherTheme==true ? 'light' : 'dark'">
   
 
       <!-- <ion-button (click) = "isLogged()" class = "menu-buttons" shape = "square" color = "tertiary">Gestión de <br> solicitudes</ion-button>
       <ion-button (click) = "isLogged2()" class = "menu-buttons" shape = "square" color = "tertiary">Turnos de  <br> trabajo</ion-button> -->
-      <button mat-raised-button color = "primary" class = "menu-buttons" (click) = "isLogged()">Gestión de <br> solicitudes</button>
-      <button mat-raised-button color = "primary" class = "menu-buttons2" (click) = "isLogged2()">Turnos de  <br> trabajo</button>
+      <button mat-raised-button color = "primary" class = "menu-buttons" (click) = "isLogged()"  matBadge="{{uncheckedRequests}}" matBadgePosition="after" matBadgeColor="warn">Gestión de <br> solicitudes</button>
+      <button mat-raised-button color = "primary" class = "menu-buttons2" (click) = "isLogged2()" >Turnos de  <br> trabajo</button>
   
 
   <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
 </ion-content>
+</div>

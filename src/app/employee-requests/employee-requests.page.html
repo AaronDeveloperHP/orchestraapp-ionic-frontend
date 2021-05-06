@@ -1,3 +1,4 @@
+<div [class.alternative]="otherTheme">
 <ion-header>
   <mat-toolbar color="primary">
     <button (click)="return()" slot = "start" mat-icon-button class="example-icon">
@@ -9,20 +10,37 @@
   </mat-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content  [color]="otherTheme==true ? 'light' : 'dark'">
   <iframe hidden=true src="https://orchestraapp-laravel-ionic.herokuapp.com/api/requests/compilar"></iframe>
   <div class = "container">
-   <!--  <mat-card color = "accent" *ngFor ="let r of req" class="example-card">
+    <mat-card color = "accent" *ngFor ="let r of req" class="example-card">
       <mat-card-header>
         
       </mat-card-header>
       <mat-card-content>
         <mat-card-title>Solicitud de {{r.userEmail}}</mat-card-title>
         Tipo: {{r.type}}<br /> 
-        Motivo: {{r.reason}}<br />
         Fecha de inicio: {{r.startDate}}<br /> 
         Fecha de finalización: {{r.endDate}}<br /> 
         Estado: {{r.revised}}<br />
+        <mat-expansion-panel  (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false" color = "accent">
+    <mat-expansion-panel-header>
+    
+    Motivo:
+    
+    </mat-expansion-panel-header>
+    <p>{{r.reason}}</p>
+    </mat-expansion-panel>
+    <mat-expansion-panel  (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false" color = "accent">
+<mat-expansion-panel-header>
+
+Comentario:
+
+</mat-expansion-panel-header>
+<p>{{r.commentary}}</p>
+</mat-expansion-panel>
       </mat-card-content>
       <mat-card-actions>
         <button mat-mini-fab *ngIf = "!admin && (r.revised == 'Sin revisar')" class = "update-icon" (click)="updateRequest(r.id)" slot = "start">
@@ -34,7 +52,7 @@
         <ion-icon *ngIf = "admin && (r.revised == 'Sin revisar' || r.revised == 'Solicitud denegada')" id = "confirm-icon" (click)="confirmRequest(r.id)" color="success" name="checkmark-outline" slot="end" style="zoom:2.0;"></ion-icon>
         <ion-icon *ngIf = "admin && (r.revised == 'Sin revisar' || r.revised == 'Solicitud aceptada')" (click)="rejectRequest(r.id)" color="danger" name="close-outline" slot="end" style="zoom:2.0;"></ion-icon>
       </mat-card-actions>
-    </mat-card> -->
+    </mat-card>
 </div>
 </ion-content>
 
@@ -46,3 +64,4 @@
     <button *ngIf = "admin" mat-raised-button color = "primary" class = "menu-buttons" (click) = "requestReportViewer()" >Ver informe <br> de solicitues</button>
   </ion-toolbar>
 </ion-footer>
+</div>

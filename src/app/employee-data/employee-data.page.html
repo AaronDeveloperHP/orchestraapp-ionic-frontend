@@ -1,3 +1,4 @@
+<div [class.alternative]="otherTheme">
 <ion-header>
   <mat-toolbar color="primary">
     <button (click)="return()" slot = "start" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
@@ -9,7 +10,7 @@
   </mat-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [color]="otherTheme==true ? 'light' : 'dark'">
   <!-- <ion-item *ngIf="admin">
     <ion-input [(ngModel)]="search" placeholder = "Búsqueda por email" type="text"></ion-input>
     <ion-icon id = "search-icon" (click) = "DataSearch()" name="search-outline" slot = "end" style="display: 'none';"></ion-icon>
@@ -55,3 +56,4 @@
     <button *ngIf = "admin" mat-raised-button color = "primary" class = "menu-buttons" (click) = "dataReportViewer()" >Ver informe de datos</button>
   </ion-toolbar>
 </ion-footer>
+</div>
