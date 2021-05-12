@@ -10,7 +10,8 @@
   </mat-toolbar>
 </ion-header>
 
-<ion-content [color]="otherTheme==true ? 'light' : 'dark'">  
+<ion-content  [fullscreen]="true" [color]="otherTheme==true ? 'light' : 'dark'">  
+  <div>
   <form [formGroup]="statusCreateForm" (ngSubmit)="onFormSubmit()">
     <mat-form-field appearance="outline">
       <mat-label>Tipo</mat-label>
@@ -54,5 +55,6 @@
       </ion-col>
     </ion-row>
   </form>
+</div>
 </ion-content>
 </div>

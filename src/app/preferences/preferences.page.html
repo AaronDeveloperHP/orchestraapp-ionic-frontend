@@ -1,0 +1,20 @@
+<div [class.alternative]="otherTheme" >
+  <ion-header>
+    <mat-toolbar color="primary">
+      <button (click)="return()" slot = "start" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <span>Preferencias</span>
+    
+      <span class="example-spacer"></span>
+    </mat-toolbar>
+   
+  </ion-header>
+    
+  <ion-content [fullscreen]="true" [color]="otherTheme==true ? 'light' : 'dark'">
+    <div class = "button-container">
+      <button (click)="changeTheme()" mat-raised-button color="primary" class="menu-buttons">Change Theme</button>
+    </div>
+    <!-- <app-explore-container name="Tab 3 page"></app-explore-container> -->
+  </ion-content>
+  </div>

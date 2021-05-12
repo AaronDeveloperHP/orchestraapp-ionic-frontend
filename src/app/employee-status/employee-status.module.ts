@@ -15,6 +15,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 
 import { EmployeeStatusPage } from './employee-status.page';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { EmployeeStatusPage } from './employee-status.page';
     MatSelectModule,
     MatToolbarModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule,
   ],
   declarations: [EmployeeStatusPage]
 })

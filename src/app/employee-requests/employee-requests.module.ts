@@ -15,6 +15,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 
 import { EmployeeRequestsPage } from './employee-requests.page';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { EmployeeRequestsPage } from './employee-requests.page';
     MatSelectModule,
     MatToolbarModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule,
   ],
   declarations: [EmployeeRequestsPage]
 })

@@ -49,6 +49,10 @@ const routes: Routes = [
     path: 'update-data',
     loadChildren: () => import('./update-data/update-data.module').then( m => m.UpdateDataPageModule)
   },
+  {
+    path: 'preferences',
+    loadChildren: () => import('./preferences/preferences.module').then( m => m.PreferencesPageModule)
+  },
 
 ];
 @NgModule({

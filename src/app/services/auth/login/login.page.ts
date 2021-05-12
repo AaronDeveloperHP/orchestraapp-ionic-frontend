@@ -20,7 +20,7 @@ export class LoginPage implements OnInit {
   loginForm: FormGroup;
   usr: User[]
   user: User[]
-  otherTheme:boolean;
+  otherTheme:boolean; 
   constructor(public fb: FormBuilder, 
     private authService: AuthService, 
     private UserService: UserService, 

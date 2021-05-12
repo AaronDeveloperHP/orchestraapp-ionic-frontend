@@ -10,7 +10,8 @@
   </mat-toolbar>
 </ion-header>
 
-<ion-content [color]="otherTheme==true ? 'light' : 'dark'">
+<ion-content  [fullscreen]="true" [color]="otherTheme==true ? 'light' : 'dark'">
+  <div>
   <!-- <ion-item *ngIf="admin">
     <ion-input [(ngModel)]="search" placeholder = "Búsqueda por email" type="text"></ion-input>
     <ion-icon id = "search-icon" (click) = "DataSearch()" name="search-outline" slot = "end" style="display: 'none';"></ion-icon>
@@ -49,9 +50,9 @@
       Fecha de finalización: {{s.endDate}}<br /> 
     </mat-card-content>
   </mat-card>
-
+</div>
 </ion-content>
-<ion-footer *ngIf = "admin" class="ion-no-border" lines = "none" >
+<ion-footer *ngIf = "admin" class="footer" lines = "none" >
   <ion-toolbar class = "footer" lines="none">
     <button *ngIf = "admin" mat-raised-button color = "primary" class = "menu-buttons" (click) = "dataReportViewer()" >Ver informe de datos</button>
   </ion-toolbar>

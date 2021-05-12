@@ -39,8 +39,8 @@ export class Tab2Page  {
   logout(){
     this.AuthService.logout();
     this.AuthService.token=null;
-    document.getElementById("logout-alert").style.display = "";
-    console.log("logged out")
+    console.log("logged out");
+    window.location.reload();
   }
 
   showRegister(){
@@ -80,7 +80,10 @@ export class Tab2Page  {
      this.dialogRef = this.dialog.open(DialodConfirmLogout);
 
     this.dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+     /*  console.log(`Dialog result: ${result}`); */
+     if(result=='Si'){
+       this.logout();
+     }
     });
   }
   
@@ -93,11 +96,15 @@ export class Tab2Page  {
 @Component({
   selector: 'dialod-confirm-logout',
   templateUrl: 'dialod-confirm-logout.html',
+  styleUrls: ['dialod-confirm-logout.scss']
 })
 export class DialodConfirmLogout {
   constructor(public dialogRef: MatDialogRef<DialodConfirmLogout>) { }
 
   closeDialog() {
     this.dialogRef.close('No');
+  }
+  acceptDialog() {
+    this.dialogRef.close('Si');
   }
 }

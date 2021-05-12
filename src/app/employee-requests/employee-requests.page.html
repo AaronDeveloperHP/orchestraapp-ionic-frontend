@@ -10,7 +10,8 @@
   </mat-toolbar>
 </ion-header>
 
-<ion-content  [color]="otherTheme==true ? 'light' : 'dark'">
+<ion-content  [fullscreen]="true" [color]="otherTheme==true ? 'light' : 'dark'">
+  
   <iframe hidden=true src="https://orchestraapp-laravel-ionic.herokuapp.com/api/requests/compilar"></iframe>
   <div class = "container">
     <mat-card color = "accent" *ngFor ="let r of req" class="example-card">
@@ -46,7 +47,7 @@ Comentario:
         <button mat-mini-fab *ngIf = "!admin && (r.revised == 'Sin revisar')" class = "update-icon" (click)="updateRequest(r.id)" slot = "start">
           <mat-icon>mode_edit</mat-icon>
         </button>
-        <button mat-mini-fab class = "delete-icon" (click)="deleteRequest(r.id)" slot = "start">
+        <button mat-mini-fab class = "delete-icon" (click)="openDialog(r.id)" slot = "start">
           <mat-icon>delete</mat-icon>
         </button>
         <ion-icon *ngIf = "admin && (r.revised == 'Sin revisar' || r.revised == 'Solicitud denegada')" id = "confirm-icon" (click)="confirmRequest(r.id)" color="success" name="checkmark-outline" slot="end" style="zoom:2.0;"></ion-icon>
@@ -56,7 +57,7 @@ Comentario:
 </div>
 </ion-content>
 
-<ion-footer class="ion-no-border" lines = "none" >
+<ion-footer class="footer" lines = "none" >
   <ion-toolbar class = "footer" lines="none">
     <button mat-mini-fab (click) = "insertRequest()" class = "addIcon" color = "primary" slot="end">
       <mat-icon>add</mat-icon>

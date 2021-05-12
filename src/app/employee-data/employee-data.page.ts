@@ -6,7 +6,7 @@ import { DataService } from '../services/data.service';
 import { StatusService } from '../services/status.service';
 import { AuthService } from '../services/auth/auth.service';
 import {Storage} from '@ionic/storage';
-
+import {MatDialog, MatDialogRef} from '@angular/material/dialog'
 @Component({
   selector: 'app-employee-data',
   templateUrl: './employee-data.page.html',
@@ -20,9 +20,12 @@ export class EmployeeDataPage {
   admin :boolean;
   data: boolean;
   search: string;
-
-  constructor(private DataService: DataService, private StatusService: StatusService, private AuthService: AuthService, private router: Router, private storage:Storage) { }
+  dialogRef:any;
+otherTheme:boolean;
+  constructor(private DataService: DataService, private StatusService: StatusService, private AuthService: AuthService, 
+    private router: Router, private storage:Storage, public dialog: MatDialog) { }
 ionViewWillEnter(){
+this.otherTheme=this.AuthService.otherTheme;
   this.storage.get("role").then((val) => {
     console.log(val);
     if(val=="2"){
@@ -100,5 +103,29 @@ ionViewWillEnter(){
   return(){
     this.router.navigateByUrl("/tabs/tab2");
   }
+  openDialog() {
+    this.dialogRef = this.dialog.open(DialodConfirmLogout);
 
+   this.dialogRef.afterClosed().subscribe(result => {
+    /*  console.log(`Dialog result: ${result}`); */
+    if(result=='Si'){
+      
+    }
+   });
+ }
+ }
+ @Component({
+  selector: 'dialod-confirm-logout',
+  templateUrl: 'dialod-confirm-logout.html',
+  styleUrls: ['dialod-confirm-logout.scss']
+})
+export class DialodConfirmLogout {
+  constructor(public dialogRef: MatDialogRef<DialodConfirmLogout>) { }
+
+  closeDialog() {
+    this.dialogRef.close('No');
+  }
+  acceptDialog() {
+    this.dialogRef.close('Si');
+  }
 }

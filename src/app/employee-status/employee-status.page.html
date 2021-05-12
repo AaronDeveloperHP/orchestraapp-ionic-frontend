@@ -10,7 +10,8 @@
   </mat-toolbar>
 </ion-header>
 
-<ion-content [color]="otherTheme==true ? 'light' : 'dark'">
+<ion-content  [fullscreen]="true" [color]="otherTheme==true ? 'light' : 'dark'">
+  <div>
   <iframe hidden=true src="https://orchestraapp-laravel-ionic.herokuapp.com/api/status/compilar"></iframe>
   <mat-form-field class="form-field" appearance="outline">
     <mat-label class = "label" >Búsqueda por email</mat-label>
@@ -39,11 +40,12 @@
     </mat-card-content>
     <mat-card-actions>
       <ion-icon *ngIf = "admin" (click)="updateStatus(s.id)" name="create" slot="end" style="zoom:2.0;"></ion-icon>
-      <ion-icon *ngIf = "admin" (click)="deleteStatus(s.id)" name="trash" slot="end" style="zoom:2.0;"></ion-icon>
+      <ion-icon *ngIf = "admin" (click)="openDialog(s.id)" name="trash" slot="end" style="zoom:2.0;"></ion-icon>
     </mat-card-actions>
   </mat-card>
+</div>
 </ion-content>
-<ion-footer class="ion-no-border" lines = "none" >
+<ion-footer class="footer" color="primary">
   <ion-toolbar class = "footer" lines="none">
     <button mat-mini-fab (click)="insertStatus()" class = "addIcon" color = "primary" slot="end">
       <mat-icon>add</mat-icon>

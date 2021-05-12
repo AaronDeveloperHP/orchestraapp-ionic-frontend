@@ -10,7 +10,7 @@
   </mat-toolbar>
 </ion-header>
 
-<ion-content [color]="otherTheme==true ? 'light' : 'dark'">
+<ion-content [color]="otherTheme==true ? 'light' : 'dark'" [fullscreen]="true">
   <div class = "container">
   <form [formGroup]="registForm" (submit)="onFormSubmit()">
     <mat-form-field class="form-field" appearance="outline">

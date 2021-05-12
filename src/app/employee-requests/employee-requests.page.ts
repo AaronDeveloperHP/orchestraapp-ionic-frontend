@@ -6,8 +6,7 @@ import { RequestsService } from '../services/requests.service';
 import { StatusService } from '../services/status.service';
 import { AuthService } from '../services/auth/auth.service';
 import {Storage} from '@ionic/storage';
-import { typeWithParameters } from '@angular/compiler/src/render3/util';
-
+import {MatDialog, MatDialogRef} from '@angular/material/dialog'
 
 
 
@@ -24,8 +23,9 @@ export class EmployeeRequestsPage{
   admin :boolean;
   request: boolean;
   otherTheme:boolean;
-
-  constructor(private RequestsService: RequestsService, private AuthService: AuthService, private StatusService: StatusService, private router: Router, private storage:Storage) { }
+  dialogRef:any;
+  constructor(private RequestsService: RequestsService, private AuthService: AuthService, private StatusService: StatusService, private router: Router, 
+    private storage:Storage, public dialog: MatDialog) { }
   email=  this.AuthService.email;
  /*  ngOnInit() {
     this.getAllStatus();
@@ -165,6 +165,30 @@ export class EmployeeRequestsPage{
       return(){
         this.router.navigateByUrl("/tabs/tab1");
       }
-  
+      openDialog(id:number) {
+        this.dialogRef = this.dialog.open(DialodConfirmDelete);
+   
+       this.dialogRef.afterClosed().subscribe(result => {
+        /*  console.log(`Dialog result: ${result}`); */
+        if(result=='Si'){
+         this.deleteRequest(id)
+        }
+       });
+     }
 
+}
+@Component({
+  selector: 'dialod-confirm-delete',
+  templateUrl: 'dialod-confirm-delete.html',
+  styleUrls: ['dialod-confirm-delete.scss']
+})
+export class DialodConfirmDelete {
+  constructor(public dialogRef: MatDialogRef<DialodConfirmDelete>) { }
+
+  closeDialog() {
+    this.dialogRef.close('No');
+  }
+  acceptDialog() {
+    this.dialogRef.close('Si');
+  }
 }
