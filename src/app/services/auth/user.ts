@@ -4,4 +4,5 @@ export interface User {
 	password_confirmation: string;
 	email: string;
 	role: number;
+	otherTheme: boolean
 }

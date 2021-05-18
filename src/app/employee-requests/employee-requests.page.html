@@ -21,8 +21,8 @@
       <mat-card-content>
         <mat-card-title>Solicitud de {{r.userEmail}}</mat-card-title>
         Tipo: {{r.type}}<br /> 
-        Fecha de inicio: {{r.startDate}}<br /> 
-        Fecha de finalización: {{r.endDate}}<br /> 
+        Fecha de inicio: {{format(r.startDate)}}<br /> 
+        Fecha de finalización: {{format(r.endDate)}}<br /> 
         Estado: {{r.revised}}<br />
         <mat-expansion-panel  (opened)="panelOpenState = true"
         (closed)="panelOpenState = false" color = "accent">

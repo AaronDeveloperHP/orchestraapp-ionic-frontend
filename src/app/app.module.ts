@@ -14,7 +14,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DocumentViewer } from '@ionic-native/document-viewer/ngx';
 import { File } from '@ionic-native/file/ngx';
-
+import * as moment from 'moment';
+import { MAT_DATE_FORMATS } from '@angular/material/core';
 
 import { IonicStorageModule, Storage } from '@ionic/storage';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -32,7 +33,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     HttpClientModule, 
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    
   ],
   providers: [
     StatusBar,

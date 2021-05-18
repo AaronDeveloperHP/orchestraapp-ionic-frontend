@@ -7,7 +7,7 @@ import { StatusService } from '../services/status.service';
 import { AuthService } from '../services/auth/auth.service';
 import {Storage} from '@ionic/storage';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog'
-
+import * as moment from 'moment';
 
 
 @Component({
@@ -84,8 +84,12 @@ export class EmployeeRequestsPage{
     this.StatusService.getStatus().subscribe( sta => {
       this.sta = sta;
     });
+   
+    
   }
-
+format(a:string){
+return  moment(a).format('DD-MM-YYYY');
+}
   insertRequest(){
     this.router.navigateByUrl("/create-request");
   }

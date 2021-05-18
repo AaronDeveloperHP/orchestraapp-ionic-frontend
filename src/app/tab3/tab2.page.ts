@@ -26,7 +26,7 @@ export class Tab2Page  {
   }
 
   logout(){
-    this.AuthService.deleteUser();
+   // this.AuthService.deleteUser();   ARREGLAR
     document.getElementById("logout-alert").style.display = "";
     console.log("logged out")
   }

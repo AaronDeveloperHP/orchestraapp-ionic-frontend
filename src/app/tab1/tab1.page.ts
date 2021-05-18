@@ -35,8 +35,11 @@ export class Tab1Page {
        }
   });
   this.uncheckedRequests=0
-  this.countUnrevisedRequests();
   
+  
+  }
+  ionViewDidEnter(){
+     this.countUnrevisedRequests();
   }
   getAllRequests(){
     this.RequestsService.getRequests().subscribe( req => {

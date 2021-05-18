@@ -20,17 +20,17 @@ export class LoginPage implements OnInit {
   loginForm: FormGroup;
   usr: User[]
   user: User[]
-  otherTheme:boolean; 
-  constructor(public fb: FormBuilder, 
-    private authService: AuthService, 
-    private UserService: UserService, 
-    private alertController: AlertController, 
-    private router: Router) { 
-      
-    }
-    ionViewWillEnter(){
-      this.otherTheme=this.authService.otherTheme;
-    }
+  otherTheme: boolean;
+  constructor(public fb: FormBuilder,
+    private authService: AuthService,
+    private UserService: UserService,
+    private alertController: AlertController,
+    private router: Router) {
+
+  }
+  ionViewWillEnter() {
+    this.otherTheme = this.authService.otherTheme;
+  }
   ngOnInit() {
     this.loginForm = this.fb.group({
       email: [null, [Validators.required]],
@@ -40,7 +40,7 @@ export class LoginPage implements OnInit {
   login2() {
     let userLogged = 'invalid_form';
     console.log('Valores del form --> ', this.loginForm.value);
-    if(this.loginForm.valid) {
+    if (this.loginForm.valid) {
       if (this.loginForm.value.email === 'aaron@gmail.com' && this.loginForm.value.password === 'aaron') {
         userLogged = 'login_valid';
       } else {
@@ -51,29 +51,29 @@ export class LoginPage implements OnInit {
 
     return userLogged;
   }
-  
+
 
   onFormSubmit() {
     if (!this.loginForm.valid) {
       return false;
     } else {
-    this.authService.login (this.loginForm.value.email, this.loginForm.value.password).subscribe(
-      
-      data => {
-        console.log("Logged In");
-      },
-      error => {
-        console.log(error);
-      },
-      () => {
-        
-        if(this.authService.checkToken()){
-          this.router.navigateByUrl('/tabs/tab1');
-        } 
-      }
-    );
-      
-      
+      this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(
+
+        data => {
+          console.log("Logged In");
+        },
+        error => {
+          console.log(error);
+        },
+        () => {
+
+         // if (this.authService.checkToken()) {
+            this.router.navigateByUrl('/tabs/tab1');
+         // }
+        }
+      );
+
+
     }
   }
 
@@ -88,10 +88,10 @@ export class LoginPage implements OnInit {
 
     await alert.present();
 
-}
+  }
 
-return(){
-  this.router.navigateByUrl("/tabs/tab2");
-}
+  return() {
+    this.router.navigateByUrl("/tabs/tab2");
+  }
 
 }
